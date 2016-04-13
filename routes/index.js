@@ -6,12 +6,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/webhook/', function(req, res, next) {
-if (req.query['hub.verify_token'] === 'nobetci') {
-    res.send(req.query['hub.challenge']);
-  }
-  res.send('Error, wrong validation token');
-});
+// router.get('/webhook/', function(req, res, next) {
+// if (req.query['hub.verify_token'] === 'nobetci') {
+//     res.send(req.query['hub.challenge']);
+//   }
+//   res.send('Error, wrong validation token');
+// });
 
 router.post('/webhook/', function (req, res) {
   var token = "CAAXls4rOxl4BAKPJz4YEGP6rtcm0UR68PQaZApwIYlztoHztDINghAXVt0LGpefY2OZCkwTHDmEJ5DZBQdMgy4J3OBrTRyUtBOc2pD2qZAFlZA7eDRuI23dSVZCjbVTckfOuwMptqbo0yhheUwHCbxiVn3vtZBB3AB0TfOr4G5J5aN3tgS9ZA9nLplYnJuWH9ZAgRLIpw5oQf0QZDZD";
