@@ -1,7 +1,7 @@
 var express = require('express'),
     request = require('request'),
     router = express.Router(),
-    token = "CAAXls4rOxl4BAEHL3YPxuW4eDl0bn7ZAisOam8khhCTv7cZCn6ZAGKnMxJUwmUqotcqEVtkPgP6pfGTdCozjAzdZAVhL4lQ4npjDJ3AZAv440P2TDoaUm5TW5DheJizQuqWtWZB2CAMAv9V9H93je1zZCPd6z8q3RYizbjkdGBPFnkZABgp7ePmHjXdtZCJsTj5LejbZAtnG2WgwZDZD";
+    token = process.env.messeger_bot_token;
 
 function sendTextMessage(sender, text) {
   var messageData = {
@@ -39,8 +39,6 @@ router.post('/webhook', function(req, res, next) {
     sender = event.sender.id;
     if (event.message && event.message.text) {
       text = event.message.text;
-
-      // アレコレしたいことをどうぞ
       sendTextMessage(sender, text.substring(0, 200));
     }
   }
