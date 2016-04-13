@@ -24,14 +24,14 @@ function sendTextMessage(sender, text) {
   });
 }
 
-router.get('/', function(req, res, next) {
+router.get('/webhook', function(req, res, next) {
   if (req.query['hub.verify_token'] === '<validation_token>') {
     res.send(req.query['hub.challenge']);
   }
   res.send('Error, wrong validation token');
 });
 
-router.post('/', function(req, res, next) {
+router.post('/webhook', function(req, res, next) {
   var messaging_events = req.body.entry[0].messaging,
       replayMessages = [];
   for (i = 0; i < messaging_events.length; i++) {
